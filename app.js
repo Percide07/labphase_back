@@ -1,9 +1,9 @@
 const express = require('express');
 const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const cors = require('cors');
 
 
-const app = express();
 
 // DB connection
 
@@ -18,8 +18,10 @@ const Messages = require('./models/Messages')
 
 // App User
 
+const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended:false }));
+app.use(cors());
 
 
 const PORT = process.env.PORT || 8000;
